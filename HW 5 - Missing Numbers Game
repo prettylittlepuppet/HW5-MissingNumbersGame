@@ -1,0 +1,101 @@
+/******************************************
+Pretty Little Puppet                      *
+COP 2000 T                                *
+HW 5                                      *
+******************************************/
+
+#include <iostream>
+#include <iomanip>
+#include <cstdlib>
+using namespace std;
+
+int main()
+{
+	//functions
+	int begin_the_game();
+	int played_board[];
+	int board[4][3];
+	int ans;
+	int board_number;
+	int answer_to_board[3];
+	void display_the_board(int[][3]);
+	void display_instructions();
+	bool test_the_winner;
+	
+	display_instructions();
+	begin_the_game();
+	display_the_board(board[][3]);
+
+	//did this in class so it will make sure that the user can only guess 3 times
+	const int max_amount_of_guesses = 3;
+	int guessesMade = 0;
+	do
+	{
+		//AskForGuess();
+		guessesMade++;
+
+	} while (guessesMade < max_amount_of_guesses)
+
+}
+
+int begin_the_game(int playedBoard[])
+{
+	//constants for the number of rows and columns
+	//understood this part
+	const int row_size = 4;
+	const int col_size = 3;
+
+	int board_number_1[row_size][col_size] = { { 90, 9 , 45 },
+						                       { 66, 12, 48 },
+						                       { 34, 7 , 70 },
+					                           { 44, 0 , 26 } };
+	 
+	int board_number_2[row_size][col_size] = { { 28, 10, 55 },
+	                                           { 89, 17, 98 },
+	                                           { 22, 4 , 31 },
+	                                           { 69, 0 , 78 } };
+
+	int board_number_3[row_size][col_size] = { { 38, 11, 83 },
+	                                           { 15, 6 , 33 },
+	                                           { 10, 2 , 20 },
+	                                           { 86, 0 , 95 } };
+
+	int answers_to_board[3] = { 8, 15, 14 };
+
+	//this will allow a random board to be genterated on the board
+	int maxValue = 3;
+	int minValue = 1;
+	int random_board_number = (rand() % (maxValue - minValue + 1)) + minValue;
+	test_the_winner(random_board_number);
+}
+
+bool test_the_winner(int answers, int board_number[], int answers_to_board[])
+{
+	//when the user wins board_number[random_board_number]=true
+	int current_guess = 0;
+	int guess_count = 0;
+
+	if (board_number[0] && board_number[1] && board_number[2] == true)
+	{
+		cout << "You are the winner!" << endl;
+	}
+		
+}
+
+void display_the_board(int board[][3])
+{
+	//this will be used to place the question marks in the display board
+	
+}
+
+void display_instructions()
+{
+	//this will display the welcome and instructions
+	cout << "**********************************************************";
+	cout << "                 MISSING NUMBERS GAME                     ";
+	cout << "                  A fun brain game...                  \n ";
+	cout << " Please enter a whole number to guess the missing number  ";
+	cout << "         Program Developed by: Pretty Little Puppet       ";
+	cout << "**********************************************************";
+}
+	
